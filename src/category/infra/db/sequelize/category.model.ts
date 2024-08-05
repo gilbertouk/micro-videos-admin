@@ -22,5 +22,5 @@ export class CategoryModel extends Model {
   declare is_active: boolean;
 
   @Column({ allowNull: false, type: DataType.DATE(3) })
-  declare create_at: Date;
+  declare created_at: Date;
 }
