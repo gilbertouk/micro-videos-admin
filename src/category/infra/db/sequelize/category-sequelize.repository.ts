@@ -22,7 +22,7 @@ export class CategorySequelizeRepository implements ICategoryRepository {
 
   async bulkInsert(entities: Category[]): Promise<void> {
     const models = entities.map((entity) =>
-      CategoryModelMapper.toModel(entity)
+      CategoryModelMapper.toModel(entity).toJSON()
     );
     await this.categoryModel.bulkCreate(models);
   }
