@@ -81,13 +81,7 @@ export class CategorySequelizeRepository implements ICategoryRepository {
     });
     return new CategorySearchResult({
       items: models.map((model) => {
-        return new Category({
-          category_id: new Uuid(model.category_id),
-          name: model.name,
-          description: model.description,
-          is_active: model.is_active,
-          created_at: model.created_at,
-        });
+        return CategoryModelMapper.toEntity(model);
       }),
       current_page: props.page,
       per_page: props.per_page,
