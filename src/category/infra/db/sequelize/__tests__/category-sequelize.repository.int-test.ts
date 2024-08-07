@@ -23,7 +23,6 @@ describe('CategorySequelizeRepository Integration Tests', () => {
 
   test('should insert a new category', async () => {
     let category = Category.create({ name: 'Movie' });
-    console.log(category.category_id.id);
     await repository.insert(category);
     let entity = await repository.findById(category.category_id);
     expect(entity.toJSON()).toStrictEqual(category.toJSON());
