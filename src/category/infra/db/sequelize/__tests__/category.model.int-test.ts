@@ -1,19 +1,9 @@
 import { DataType, Sequelize } from 'sequelize-typescript';
 import { CategoryModel } from '../category.model';
+import { setupSequelize } from '../../../../../shared/infra/testing/helpers';
 
 describe('CategoryModel Integration Tests', () => {
-  let sequelize;
-
-  beforeEach(async () => {
-    sequelize = new Sequelize({
-      dialect: 'sqlite',
-      storage: ':memory:',
-      logging: false,
-      models: [CategoryModel],
-    });
-
-    await sequelize.sync({ force: true });
-  });
+  setupSequelize({ models: [CategoryModel] });
 
   test('mapping props', async () => {
     const attributesMap = CategoryModel.getAttributes();
