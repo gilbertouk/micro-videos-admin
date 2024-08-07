@@ -40,7 +40,6 @@ describe('CategorySequelizeRepository Integration Tests', () => {
 
   test('should finds a entity by id', async () => {
     let entityFound = await repository.findById(new Uuid());
-    console.log(entityFound);
     expect(entityFound).toBeNull();
 
     const entity = Category.fake().aCategory().build();
